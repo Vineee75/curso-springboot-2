@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+//Classe de domínio, ela é o objeto que irá aparecer no banco de dados
+
 @Entity
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;

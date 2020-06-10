@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.educandoweb.course.entities.User;
 
+//classe que disponibiliza um recurso web para classe User (Ela vai criar um link pra sua classe user).
+
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
