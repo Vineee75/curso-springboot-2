@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 //Classe de domínio, ela é o objeto que irá aparecer no banco de dados
 
 @Entity
@@ -26,6 +28,7 @@ public class User implements Serializable {
 	private String phone;
 	private String password;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "client")
 	private List<Order> orders = new ArrayList<>();
 	
