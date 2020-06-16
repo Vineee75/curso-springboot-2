@@ -11,25 +11,45 @@ import com.educandoweb.course.repositories.UserRepository;
 
 @Service
 public class UserService {
-	
+
 	@Autowired
 	private UserRepository repository;
 
+	// Métodos CRUD
+
+	// C
+	public User insert(User obj) {
+		return repository.save(obj);
+	}
+
+	// R
 	public List<User> findAll() {
 		return repository.findAll();
 	}
-	
+
 	public User findById(Long id) {
 		Optional<User> obj = repository.findById(id);
 		return obj.get();
 	}
-	
-	public User insert(User obj) {
-		return repository.save(obj);
+
+	// U
+	public User update(Long id, User obj) {
+		User entity = repository.getOne(id);
+		updateData(entity, obj);
+		return repository.save(entity);
 	}
-	
+
+	// D
 	public void delete(Long id) {
 		repository.deleteById(id);
 	}
-	
+
+	// Fim dos métodos CRUD
+
+	private void updateData(User entity, User obj) {
+		entity.setName(obj.getName());
+		entity.setEmail(obj.getEmail());
+		entity.setPhone(obj.getPhone());
+	}
+
 }
